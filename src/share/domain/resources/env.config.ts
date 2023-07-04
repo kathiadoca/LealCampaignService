@@ -17,6 +17,7 @@ export default registerAs('configuration', () => ({
     password: process.env.DB_PASSWORD,
     dbdatabase: process.env.DB_DATABASE,
     dbhost: process.env.DB_HOST,
+    dbport: process.env.DB_PORT,
   },
   NAMEPROCEDURE: process.env.NAME_PROCEDURE,
   APM: {

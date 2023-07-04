@@ -2,10 +2,10 @@ import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { Reward } from './Reward.entity';
 import { Purchase } from './Purchase.entity';
 
-@Entity()
+@Entity('user', { schema: 'public' })
 export class User {
   @PrimaryGeneratedColumn()
-  id: number;
+  id: string;
 
   @Column()
   name: string;
