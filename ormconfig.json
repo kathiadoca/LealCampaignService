@@ -1,0 +1,15 @@
+{
+    "type": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "username": "root",
+    "password": "",
+    "database": "leal_db",
+    "synchronize": false,
+    "logging": true,
+    "entities": ["dist/**/*{.ts,.js}"],
+    "migrations": ["dist/infrastructure/database/migrations/*.js"],
+    "cli": {
+      "migrationsDir": "src/infrastructure/database/migrations"
+    }
+  }
