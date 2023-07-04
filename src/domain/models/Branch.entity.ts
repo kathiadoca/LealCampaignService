@@ -9,6 +9,6 @@ export class Branch {
   @Column()
   name: string;
 
-  @ManyToOne(() => Commerce, (commerce) => commerce.branches)
+  @ManyToOne(() => Commerce, (commerce) => commerce.id)
   commerce: Commerce;
 }

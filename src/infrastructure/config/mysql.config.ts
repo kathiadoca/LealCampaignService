@@ -26,7 +26,7 @@ export class MysqlConfig implements TypeOrmOptionsFactory {
       username: this.configService.database.username,
       password: this.configService.database.password,
       database: this.configService.database.dbdatabase,
-      synchronize: false,
+      synchronize: true,
       entities: [User, RewardType, Reward, Purchase, Campaign, Commerce],
     };
   }

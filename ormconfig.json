@@ -4,7 +4,7 @@
     "port": 3306,
     "username": "root",
     "password": "",
-    "database": "leal_db",
+    "database": "lealdb",
     "synchronize": false,
     "logging": true,
     "entities": ["dist/**/*{.ts,.js}"],

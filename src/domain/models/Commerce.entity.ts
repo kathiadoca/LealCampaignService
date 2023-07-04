@@ -1,14 +1,13 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { Branch } from './Branch.entity';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { ApiProperty } from '@nestjs/swagger';
 
 @Entity('commerce', { schema: 'public' })
 export class Commerce {
   @PrimaryGeneratedColumn()
+  @ApiProperty()
   id: number;
 
   @Column()
+  @ApiProperty()
   name: string;
-
-  @OneToMany(() => Branch, (branch) => branch.commerce)
-  branches: Branch[];
 }
