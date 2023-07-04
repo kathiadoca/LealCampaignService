@@ -4,6 +4,7 @@ import configuration from './share/domain/resources/env.config';
 import { GlobalModule } from './share/domain/config/global.module';
 import { UserModule } from './adapters/modules/user.module';
 import { CommerceModule } from './adapters/modules/commerce.module';
+import { BranchModule } from './adapters/modules/branch.module';
 
 /**
  *  @description clase anotada con un decorador @Module(). El decorador @Module() proporciona
@@ -22,6 +23,7 @@ import { CommerceModule } from './adapters/modules/commerce.module';
     GlobalModule,
     CommerceModule,
     UserModule,
+    BranchModule,
   ],
 })
 export class AppModule {}

@@ -4,7 +4,6 @@ import { ApiProperty } from '@nestjs/swagger';
 @Entity('commerce', { schema: 'public' })
 export class Commerce {
   @PrimaryGeneratedColumn()
-  @ApiProperty()
   id: number;
 
   @Column()

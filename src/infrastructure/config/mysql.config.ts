@@ -11,6 +11,7 @@ import { Purchase } from 'src/domain/models/Purchase.entity';
 import { Reward } from 'src/domain/models/Reward.entity';
 import { RewardType } from 'src/domain/models/RewardType.entity';
 import { Commerce } from 'src/domain/models/Commerce.entity';
+import { Branch } from 'src/domain/models/Branch.entity';
 
 @Injectable()
 export class MysqlConfig implements TypeOrmOptionsFactory {
@@ -27,7 +28,15 @@ export class MysqlConfig implements TypeOrmOptionsFactory {
       password: this.configService.database.password,
       database: this.configService.database.dbdatabase,
       synchronize: true,
-      entities: [User, RewardType, Reward, Purchase, Campaign, Commerce],
+      entities: [
+        User,
+        RewardType,
+        Reward,
+        Purchase,
+        Campaign,
+        Commerce,
+        Branch,
+      ],
     };
   }
 }

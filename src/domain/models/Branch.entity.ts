@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 import { Commerce } from './Commerce.entity';
+import { ApiProperty } from '@nestjs/swagger';
 
 @Entity('branch', { schema: 'public' })
 export class Branch {
@@ -7,8 +8,10 @@ export class Branch {
   id: number;
 
   @Column()
+  @ApiProperty()
   name: string;
 
   @ManyToOne(() => Commerce, (commerce) => commerce.id)
-  commerce: Commerce;
+  @ApiProperty()
+  idCommerce: number;
 }
