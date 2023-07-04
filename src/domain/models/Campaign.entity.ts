@@ -7,6 +7,9 @@ export class Campaign {
   id: number;
 
   @Column()
+  branch: string;
+
+  @Column()
   name: string;
 
   @OneToMany(() => Purchase, (purchase) => purchase.campaign)

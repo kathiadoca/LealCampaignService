@@ -10,9 +10,10 @@ import { Campaign } from 'src/domain/models/Campaign.entity';
 import { Purchase } from 'src/domain/models/Purchase.entity';
 import { Reward } from 'src/domain/models/Reward.entity';
 import { RewardType } from 'src/domain/models/RewardType.entity';
+import { Commerce } from 'src/domain/models/Commerce.entity';
 
 @Injectable()
-export class MysqConfig implements TypeOrmOptionsFactory {
+export class MysqlConfig implements TypeOrmOptionsFactory {
   constructor(
     @Inject(config.KEY) private configService: ConfigType<typeof config>,
   ) {}
@@ -26,7 +27,7 @@ export class MysqConfig implements TypeOrmOptionsFactory {
       password: this.configService.database.password,
       database: this.configService.database.dbdatabase,
       synchronize: false,
-      entities: [User, RewardType, Reward, Purchase, Campaign],
+      entities: [User, RewardType, Reward, Purchase, Campaign, Commerce],
     };
   }
 }

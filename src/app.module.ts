@@ -2,11 +2,8 @@ import { Logger, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import configuration from './share/domain/resources/env.config';
 import { GlobalModule } from './share/domain/config/global.module';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './adapters/modules/user.module';
-import { UserService } from './application/services/UserService';
-import { User } from './domain/models/User.entity';
-import { DatabasesModule } from './adapters/modules/database.module';
+import { CommerceModule } from './adapters/modules/commerce.module';
 
 /**
  *  @description clase anotada con un decorador @Module(). El decorador @Module() proporciona
@@ -23,6 +20,7 @@ import { DatabasesModule } from './adapters/modules/database.module';
       load: [configuration],
     }),
     GlobalModule,
+    CommerceModule,
     UserModule,
   ],
 })
