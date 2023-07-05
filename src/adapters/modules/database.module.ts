@@ -12,6 +12,8 @@ import { Commerce } from 'src/domain/models/Commerce.entity';
 import { CommerceRepository } from 'src/domain/repositories/CommerceRepository';
 import { BranchRepository } from 'src/domain/repositories/BranchRepository';
 import { Branch } from 'src/domain/models/Branch.entity';
+import { Campaign } from 'src/domain/models/Campaign.entity';
+import { CampaignRepository } from 'src/domain/repositories/Campaignpository';
 
 // Repositories
 //import { UserRepository, UserTransactionRepository } from './repositories';
@@ -19,14 +21,20 @@ import { Branch } from 'src/domain/models/Branch.entity';
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({ useClass: MysqlConfig }),
-    TypeOrmModule.forFeature([User, Commerce, Branch]),
+    TypeOrmModule.forFeature([User, Commerce, Branch, Campaign]),
   ],
-  providers: [UserRepository, CommerceRepository, BranchRepository],
+  providers: [
+    UserRepository,
+    CommerceRepository,
+    BranchRepository,
+    CampaignRepository,
+  ],
   exports: [
     TypeOrmModule,
     UserRepository,
     CommerceRepository,
     BranchRepository,
+    CampaignRepository,
   ],
 })
 export class DatabasesModule {}
