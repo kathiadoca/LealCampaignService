@@ -8,10 +8,12 @@ import {
 import { Purchase } from './Purchase.entity';
 import { ApiProperty } from '@nestjs/swagger';
 import { Branch } from './Branch.entity';
+import { Commerce } from './Commerce.entity';
 
 @Entity()
 export class Campaign {
   @PrimaryGeneratedColumn()
+  @ApiProperty()
   id: number;
 
   @Column()
@@ -38,7 +40,10 @@ export class Campaign {
   @ApiProperty()
   isActive: boolean;
 
-  @ManyToOne(() => Branch)
+  @ManyToOne(() => Commerce, (commerce) => commerce.campaigns)
+  commerce: Commerce;
+
+  @ManyToOne(() => Branch, (branch) => branch.campaigns)
   branch: Branch;
 
   @OneToMany(() => Purchase, (purchase) => purchase.campaign)

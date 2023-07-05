@@ -7,10 +7,19 @@ import { Campaign } from '../models/Campaign.entity';
 export class CampaignRepository {
   constructor(
     @InjectRepository(Campaign)
-    private readonly branchRepository: Repository<Campaign>,
+    private readonly campaignRepository: Repository<Campaign>,
   ) {}
 
   async create(campaign: Campaign): Promise<Campaign> {
-    return await this.branchRepository.save(campaign);
+    return await this.campaignRepository.save(campaign);
+  }
+
+  async update(campaign: Campaign): Promise<Campaign> {
+    let campaignToUpdate = await this.campaignRepository.findOne({
+      where: { id: campaign.id },
+    });
+    console.log('--->', campaign);
+    campaignToUpdate = { ...campaignToUpdate, ...campaign };
+    return await this.campaignRepository.save(campaignToUpdate);
   }
 }

@@ -9,4 +9,8 @@ export class CampaignService {
   async createCampaign(campaign: Campaign): Promise<Campaign> {
     return this.campaignRepository.create(campaign);
   }
+
+  async updateCampaign(campaign: Campaign): Promise<Campaign | null> {
+    return this.campaignRepository.update(campaign);
+  }
 }

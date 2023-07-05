@@ -3,6 +3,7 @@ import {
   Controller,
   Inject,
   Logger,
+  Patch,
   Post,
   Res,
   UseInterceptors,
@@ -57,18 +58,21 @@ export class CampaignController {
     }
   }
 
-  /* @ApiResponse({
+  @ApiResponse({
     //type: ApiResponseDto,
     status: 200,
   })
-  @Post('createUser')
-  async createUsers(@Res() res: Response, @Body() body: User): Promise<void> {
+  @Patch('updateBranch')
+  async createUsers(
+    @Res() res: Response,
+    @Body() body: Campaign,
+  ): Promise<void> {
     //const processTime = this.processTimeService.start();
     try {
       this.logger.log('Controller request message', {
         transactionId: this.transactionId,
       });
-      const serviceResponse = await this.userService.createUser(body);
+      const serviceResponse = await this.campaignService.updateCampaign(body);
       res.status(200).json({});
     } finally {
       this.logger.log(
@@ -79,5 +83,5 @@ export class CampaignController {
         },
       );
     }
-  } */
+  }
 }
